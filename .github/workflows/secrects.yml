@@ -1,18 +1,18 @@
-name: workflow_secrects
+name: Workflow Secrets Example
 on: workflow_dispatch
 
 env:
-  DB_U: test
-  DB_P: ${{secrects.DB_PASSWORD}}
+  DB_U: test  # 直接定义明文环境变量
 
 jobs:
-  test secrects:
+  test-secrets:  # 作业名称无空格
     runs-on: ubuntu-latest
     steps:
-      # Runs a single command using the runners shell
-      - name: checkout code
-        uses: actions/checkout@v4
-      - name: checkout env u
-        run: echo "u=${{ env.DB_U}}"
-       - name: checkout env P
-        run: echo "p=${{ env.DB_P}}"
+      - name: Checkout code
+        uses: actions/checkout@v4  # 正确缩进
+
+      - name: Print environment variable U
+        run: echo "u=${{ env.DB_U }}"  # 引用环境变量
+
+      - name: Print secret P
+        run: echo "p=${{ secrets.DB_PASSWORD }}"  # 直接引用密钥
