@@ -16,7 +16,7 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: checkout code
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
 
       # Runs a set of commands using the runners shell
       - name: checkout default env
