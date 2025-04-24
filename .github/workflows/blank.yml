@@ -21,6 +21,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: checkout default env
         run: env
+      - name: print env
+        run: echo $GITHUB_REPOSITORY
+      - name: test with python
+        run: python env.py
   # build_on_windows:
   #   # The type of runner that the job will run on
   #   runs-on: windows-latest
