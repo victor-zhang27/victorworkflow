@@ -1,6 +1,5 @@
 name: workflow_secrects
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 
 env:
   DB_U: test
