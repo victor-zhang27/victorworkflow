@@ -1,0 +1,19 @@
+name: workflow_secrects
+on:
+  workflow_dispatch:
+
+env:
+  DB_U: test
+  DB_P: ${{secrects.DB_PASSWORD}}
+
+jobs:
+  test secrects:
+    runs-on: ubuntu-latest
+    steps:
+      # Runs a single command using the runners shell
+      - name: checkout code
+        uses: actions/checkout@v4
+      - name: checkout env u
+        run: echo "u=${{ env.DB_U}}"
+       - name: checkout env P
+        run: echo "p=${{ env.DB_P}}"
